@@ -1,0 +1,3 @@
+[submodule "GraphQL-node-try"]
+	path = GraphQL-node-try
+	url = git@github.com:sugan0tech/GraphQL-node-try.git
