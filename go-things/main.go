@@ -2,25 +2,26 @@ package main
 
 import (
 	"fmt"
-	"time"
-  "example/hello/user"
 )
 
-
 func main() {
-	age := 56
-	getAdultYears(&age)
-	fmt.Println(age)
-	var appUser *user.User
-  var err error
-	appUser, err = user.NewUser("sugan", "kpms", 23, time.Now())
-  if err != nil {
-    fmt.Println(err)
-    return
-  }
-  appUser.PrintUser()
-
+  arrays := []int{2, 3, 4, 5, 6}
+  fmt.Println(transformNumbers(&arrays, double))
+  fmt.Println(transformNumbers(&arrays, triple))
 }
-func getAdultYears(age *int) int {
-	return *age - 18
+
+func transformNumbers(numbers *[]int, function func(int) int) []int{
+  resultArray := []int{}
+  for _, val := range *numbers {
+    resultArray = append(resultArray, function(val))
+  }
+  return resultArray
+}
+
+func double(val int) int {
+  return val*2
+}
+
+func triple(val int) int {
+  return val*3
 }

@@ -11,7 +11,7 @@ import (
 
 type saver interface {
 	Save() error
-  Display()
+	Display()
 }
 
 func main() {
@@ -23,7 +23,7 @@ func main() {
 			fmt.Print(err)
 			return
 		}
-    outputData(note)
+		outputData(note)
 		if err != nil {
 			fmt.Print(err)
 			return
@@ -34,27 +34,27 @@ func main() {
 			fmt.Print(err)
 			return
 		}
-    outputData(todo)
+		outputData(todo)
 		if err != nil {
 			fmt.Println(err)
 			return
 		}
 	}
-  sum := addGeneric(1, 3)
-  fmt.Println(sum)
+	sum := addGeneric(1, 3)
+	fmt.Println(sum)
 }
 
-func addGeneric[T int|float64|string](a, b T) T {
-  return a + b
+func addGeneric[T int | float64 | string](a, b T) T {
+	return a + b
 }
 
-func outputData(data saver) error{
-  data.Display()
-  return saveData(data)
+func outputData(data saver) error {
+	data.Display()
+	return saveData(data)
 }
 
-func saveData(data saver) error{
-  return data.Save()
+func saveData(data saver) error {
+	return data.Save()
 }
 
 func getTodos() (todo.Todos, error) {
