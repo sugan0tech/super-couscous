@@ -17,8 +17,8 @@ func main(){
   dones[3] = make(chan bool)
   go greet("She: I have a boyfriend", dones[3])
 
-  for _, done := range dones {
-    <- done
+  for done := range dones {
+    fmt.Print(done)
   }
 
 }
