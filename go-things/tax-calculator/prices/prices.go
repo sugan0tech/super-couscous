@@ -2,20 +2,20 @@ package prices
 
 import (
 	"fmt"
+	iomanager "tax-calculator/IOmanager"
 	"tax-calculator/conversion"
-	"tax-calculator/filemanager"
 )
 
 type TaxIncludedPriceJob struct {
-	IOManager         filemanager.FileManager `json:"-"`
-	TaxRate           float64                 `json:"tax_rate"`
-	InputPrices       []float64               `json:"input_prices"`
-	TaxIncludedPrices map[string]string       `json:"tax_included_prices"`
+	IOManager         iomanager.IOmanager `json:"-"`
+	TaxRate           float64             `json:"tax_rate"`
+	InputPrices       []float64           `json:"input_prices"`
+	TaxIncludedPrices map[string]string   `json:"tax_included_prices"`
 }
 
-func NewTaxIncludedPriceJob(fm filemanager.FileManager, taxRate float64) *TaxIncludedPriceJob {
+func NewTaxIncludedPriceJob(io iomanager.IOmanager, taxRate float64) *TaxIncludedPriceJob {
 	return &TaxIncludedPriceJob{
-		IOManager:   fm,
+		IOManager:   io,
 		InputPrices: []float64{10, 20, 30},
 		TaxRate:     taxRate,
 	}
