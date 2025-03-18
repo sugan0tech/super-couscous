@@ -48,48 +48,47 @@ replay_pid*
 **/*.spacetimedb
 **/spacetime.lock
 
-# Language-specific recursive ignores
-## C# ##
-**/*.pdb
-**/*.dll
-**/*.exe
-**/*.cache
-**/*.ilk
-**/*.exp
-**/*.lib
-**/Generated/       # All generated client code directories
 
-## Rust ##
-**/*.so
-**/*.dll
-**/*.exe
+### Rust Build Artifacts ###
+# Comprehensive coverage for all Rust target directories and artifacts
+**/target/
+**/*.rs.bk
+**/Cargo.lock
+
+# Object files and intermediates
+**/*.rcgu.o
+**/*.rmeta
 **/*.rlib
 **/*.d
-**/.cargo/
+**/*.so
+**/*.dylib
+**/*.pdb
+**/*.ilk
+**/*.exp
 
-## Node/NPM (if any submodules use JS tooling) ##
-**/node_modules/
-**/package-lock.json
-**/.npm
+# Incremental compilation
+**/debug/incremental/
 
-## Python ##
-**/__pycache__/
-**/*.pyc
-**/*.pyo
-**/*.pyd
+# Dependency files
+**/debug/deps/
 
-# Submodule management
-*.git/modules/      # Git internal submodule tracking
-**/.gitattributes
-**/.gitmodules
+# macOS specific
+**/*.dSYM/
 
-# Exceptions (keep these in parent directories)
-!*.sln
-!*.csproj
-!*.rs
-!*.toml
-!*.md
+### C# Build Artifacts ###
+**/bin/
+**/obj/
+**/Generated/  # If auto-generated
+**/*.csproj.user
+**/*.suo
 
-# Custom per-submodule exceptions (add below)
-# Example:
-# !submodules/special-module/important.file
+### General Ignore ###
+# Editor/IDE files
+**/.vscode/
+**/.idea/
+**/*.swp
+**/*.swo
+
+# System files
+**/.DS_Store
+**/Thumbs.db
