@@ -22,3 +22,74 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+
+
+# Global recursive patterns (apply to ALL directories)
+**/.DS_Store
+**/Thumbs.db
+**/*.swp
+**/*.swo
+**/.vs/
+**/.vscode/
+**/.idea/
+**/bin/
+**/obj/
+**/target/          # Rust build directories everywhere
+**/Cargo.lock       # Rust lock files in any submodule
+**/*.rs.bk
+**/packages/
+**/*.user
+**/*.suo
+**/TestResults/
+**/*.log
+**/authtoken.txt    # Security: All auth tokens in any dir
+**/.env             # All environment files
+**/.spacetime/      # SpacetimeDB instances in any submodule
+**/*.spacetimedb
+**/spacetime.lock
+
+# Language-specific recursive ignores
+## C# ##
+**/*.pdb
+**/*.dll
+**/*.exe
+**/*.cache
+**/*.ilk
+**/*.exp
+**/*.lib
+**/Generated/       # All generated client code directories
+
+## Rust ##
+**/*.so
+**/*.dll
+**/*.exe
+**/*.rlib
+**/*.d
+**/.cargo/
+
+## Node/NPM (if any submodules use JS tooling) ##
+**/node_modules/
+**/package-lock.json
+**/.npm
+
+## Python ##
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/*.pyd
+
+# Submodule management
+*.git/modules/      # Git internal submodule tracking
+**/.gitattributes
+**/.gitmodules
+
+# Exceptions (keep these in parent directories)
+!*.sln
+!*.csproj
+!*.rs
+!*.toml
+!*.md
+
+# Custom per-submodule exceptions (add below)
+# Example:
+# !submodules/special-module/important.file
