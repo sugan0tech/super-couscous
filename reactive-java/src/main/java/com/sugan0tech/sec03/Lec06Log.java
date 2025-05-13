@@ -9,7 +9,9 @@ public class Lec06Log {
     public static Logger log = Logger.getLogger(Lec06Log.class.getName());
     public static void main(String[] args) {
         Flux.range(1, 10)
-                .log()
+                .log("Range Producer")
+                .filter(e -> e % 2 == 0)
+                .log("Filter Producer")
                 .subscribe(Util.subscriber());
     }
 }
